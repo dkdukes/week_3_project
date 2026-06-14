@@ -34,4 +34,11 @@ if response.status_code == 200:
             "Source_URL" :base_url
         }
         products_list.append(product_details)
+else:
+    print("Failed to fetch data from the url",response.status_code)
 
+
+df = pd.DataFrame(products_list)
+
+# df.to_csv("Laptops.csv")
+df.to_excel("Laptops.xlsx",index=False)
